@@ -1,3 +1,28 @@
+<?php
+/* Smarty version 3.1.30, created on 2017-08-10 00:19:22
+  from "f:\OpenServer\domains\smarty\templates\form.tpl" */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.30',
+  'unifunc' => 'content_598b7c5a65d277_91336192',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '339ba7404dd891261ddb0bc86a6ab2f73fe3b0dd' => 
+    array (
+      0 => 'f:\\OpenServer\\domains\\smarty\\templates\\form.tpl',
+      1 => 1502313559,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_598b7c5a65d277_91336192 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->compiled->nocache_hash = '7822598b7c5a5e85f4_95638801';
+?>
 <div id="center">
     <h1>Registration</h1>
     <form action="../configs/form-config.php" name="reg_form" method="post" id="reg_form">
@@ -16,4 +41,5 @@
         <button id="regButton" class="formButton">Sign in</button>
     </form>
     <div id="form_message"></div>
-</div>
+</div><?php }
+}

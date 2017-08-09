@@ -1,21 +1,15 @@
 {* Smarty *}
 
-{* I am a Smarty comment, I don't exist in the compiled output  *}
+<!DOCTYPE html>
 <html>
 <head>
-<title>{$title}</title>
+    <title>{$title}</title>
+    <link href="../includes/css/style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
+    {include file='form.tpl'}
 
-{* another single line smarty comment  *}
-<!-- HTML comment that is sent to the browser -->
-
-{* this multiline smarty
-   comment is
-   not sent to browser
-*}
-
-{include file='form.tpl'}
-
+    <script type="text/javascript" src="../includes/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../includes/js/form-config.js"></script>
 </body>
 </html>

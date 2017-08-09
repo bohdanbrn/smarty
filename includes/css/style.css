@@ -1,0 +1,56 @@
+#center {
+    margin: 0 auto;
+    width: 380px;
+}
+
+#center h1 {
+    margin-top: 60px;
+    text-align: center;
+}
+
+#login_form {
+    padding: 20px;
+    background-color: #f4f5f6;
+    font-size: 19px;
+}
+
+.formRow {
+    margin-bottom: 10px;
+}
+
+.formRow label {
+    line-height: 30px;
+}
+
+.formField {
+    width: 316px;
+    font-size: 19px;
+    padding: 7px 10px;
+    transition: none;
+}
+
+.formButton {
+    width: 340px;
+    color: #fff;
+    background-color: #00a1f1;
+    border-color: transparent;
+    font-size: 19px;
+    padding: 7px 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.formButton:hover {
+    background-color: #00b5f1; 
+}
+
+#loguot {
+    text-align: center;
+    color: #000;
+    text-decoration: none;
+}
+
+#loguot:hover {
+    color: #00a1f1;
+}
+

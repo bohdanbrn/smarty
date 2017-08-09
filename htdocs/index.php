@@ -3,7 +3,8 @@
 
     $smarty = new Smarty_GuestBook();
 
-    $smarty->assign('name','Bohdan');
+    $smarty->assign('title', 'Registration');
 
     $smarty->display('index.tpl');
+    
 ?>
