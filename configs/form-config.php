@@ -21,7 +21,7 @@
 
             //save in to db
             $sql = "INSERT INTO `users` (`id`, `email`, `password`) VALUES (NULL, '$email', '$password')";
-			$result = mysql_query($sql);
+			$result = mysqli_query($connect, $sql);
 			if ( $result ) {
 				echo "Done";
 			}

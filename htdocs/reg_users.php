@@ -8,17 +8,17 @@
 
 
     $sql = "SELECT * FROM users";
-    $result = mysql_query($sql);
+    $result = mysqli_query($connect, $sql);
     if ( !result ) {
 	    echo "Could not successfully run query from DB: " . mysql_error(); 
     }
     else {
-        if ( mysql_num_rows($result) == 0 ) { 
+        if ( mysqli_num_rows($result) == 0 ) { 
             echo "Nothing found!"; 
         }
         else {
             $users = array();
-            while ( $users[] = mysql_fetch_assoc($result) ) {}
+            while ( $users[] = mysqli_fetch_assoc($result) ) {}
             $smarty->assign('users', $users);
         }
     }
