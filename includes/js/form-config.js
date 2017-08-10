@@ -5,13 +5,15 @@ $(document).ready(function () {
             form = $(this),
             submitButton = $('#regButton'),
             formMessage = $('#form_message'),
+            reg_captcha = $('#reg_captcha'),
             configUrl = window.location.origin;
             //configUrl = form.attr("action");
         
         $.ajax ({
-            url: configUrl + "/configs/form-config.php",
+            url: configUrl + "/htdocs/form-config.php",
             //url: configUrl,
             data: form.serialize(),
+            dataType: "html",
             method: "POST",
             beforeSend: function() {
                 submitButton.text("Wait...");
@@ -20,10 +22,13 @@ $(document).ready(function () {
                 submitButton.text("Sign in");
                 if (response.trim() === "Done") {
                     form[0].reset();
+                    reg_captcha.attr("src", "../htdocs/captcha.php");
+                    formMessage.attr('class', 'success');
                     formMessage.html("You have successfully registered");
                 }
                 else {
                     console.log(response);
+                    formMessage.attr('class', 'warning');
                     //formMessage.html("Something went wrong :(");
                     formMessage.html(response);
                 }
@@ -34,10 +39,3 @@ $(document).ready(function () {
         });
     });
 });
-
-function funcSuccess(response) {
-    $("#form_message").html(data);
-    if ( ~data.indexOf("Ви увійшли у кабінет!") ) {
-        $(location).attr("href", "home.php");
-    }
-}

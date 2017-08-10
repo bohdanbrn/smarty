@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Час створення: Сер 10 2017 р., 11:14
+-- Час створення: Сер 10 2017 р., 15:52
 -- Версія сервера: 5.7.19
 -- Версія PHP: 7.1.7
 
@@ -42,7 +42,23 @@ INSERT INTO `users` (`id`, `email`, `password`) VALUES
 (1, 'qwerty@mail.ua', 1111),
 (2, 'test@mail.ua', 2222),
 (3, 'test1@mail.ua', 3333),
-(4, 'test2@mail.ua', 4444);
+(4, 'test2@mail.ua', 4444),
+(5, 'test1@mail.ua', 1111),
+(6, 'test4@mail.ua', 1234),
+(7, 'test1@mail.ua', 1),
+(8, 'test6@mail.ua', 1111),
+(9, 'test7@mail.ua', 1111),
+(10, 'test7@mail.ua', 1234),
+(11, 'test1@mail.ua', 1111),
+(12, 'test10@mail.ua', 111),
+(13, 'test1@mail.ua', 11),
+(14, 'test1@mail.ua', 11),
+(15, 'test6@mail.ua', 124),
+(16, 'test6@mail.ua', 124),
+(17, 'test1@mail.ua', 123),
+(18, 'test1@mail.ua', 111111),
+(19, 'test1@mail.ua', 34),
+(20, 'test1@mail.ua', 1111);
 
 --
 -- Індекси збережених таблиць
@@ -62,7 +78,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблиці `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;COMMIT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
