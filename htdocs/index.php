@@ -1,5 +1,5 @@
 <?php
-    require('setup.php');
+    require('../configs/setup.php');
 
     $smarty = new Smarty_GuestBook();
 

@@ -3,7 +3,7 @@ $(document).ready(function () {
         event.preventDefault(); // Cancel the submit
         var
             form = $(this),
-            submitButton = $('#regButton'),
+            submitButton = $('#reg_button'),
             formMessage = $('#form_message'),
             reg_captcha = $('#reg_captcha'),
             configUrl = window.location.origin;
@@ -13,28 +13,30 @@ $(document).ready(function () {
             url: configUrl + "/htdocs/form-config.php",
             //url: configUrl,
             data: form.serialize(),
-            dataType: "html",
+            dataType: "json",
             method: "POST",
             beforeSend: function() {
                 submitButton.text("Wait...");
             },
             success: function(response) {
-                submitButton.text("Sign in");
-                if (response.trim() === "Done") {
+                submitButton.text("Sign up");
+                //console.log(response);
+                formMessage.html("");
+                if (response['success'] === false) {
+                    formMessage.attr('class', 'warning');
+                }
+                else {
                     form[0].reset();
                     reg_captcha.attr("src", "../htdocs/captcha.php");
                     formMessage.attr('class', 'success');
-                    formMessage.html("You have successfully registered");
                 }
-                else {
-                    console.log(response);
-                    formMessage.attr('class', 'warning');
-                    //formMessage.html("Something went wrong :(");
-                    formMessage.html(response);
+                for (var i = 0; i < response['messages'].length; i++) {
+                    formMessage.append(response['messages'][i] + "<br>");
                 }
             },
-            error: function() {
-                alert("Check your Internet connection");
+            error: function(response) {
+                formMessage.html("Check your Internet connection");
+                console.log(response);
             }
         });
     });

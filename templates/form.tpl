@@ -15,9 +15,9 @@
         </div>
         <div class="formRow">
             <img src="../htdocs/captcha.php" id="reg_captcha" class="captcha">
-            <input class="userAnswer" type="text" name="user_answer" placeholder="enter captcha" required>
+            <input class="userCaptcha" type="text" name="user_captcha" placeholder="enter captcha" required>
         </div>
-        <button id="regButton" class="formButton">Sign in</button>
+        <button id="reg_button" class="formButton">Sign up</button>
     </form>
     <div id="form_message"></div>
 </div>

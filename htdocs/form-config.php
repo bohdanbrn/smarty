@@ -1,30 +1,40 @@
 <?php
     session_start();
-    /*
-    require('../htdocs/setup.php');
 
-    $smarty = new Smarty_GuestBook();
+    header('Content-type: text/html; charset=utf-8');
 
-    $smarty->assign('email', '$smarty.post.email');
-
-    echo $email;
-    */
-    
-    require('../configs/config.php');
+    require_once('../configs/config.php');
+    require_once('../includes/php/check_form.php');
 
     $email = trim($_POST['email']);
     $password = trim($_POST['password']);
-    $repeat_password = trim($_POST['repeat_password']);
+    $repeat_pass = trim($_POST['repeat_password']);
 
     //captcha
-    $user_answer = trim($_POST['user_answer']);
-    $true_answer = trim($_SESSION['rand_code']);
+    $user_captcha = trim($_POST['user_captcha']);
+    $true_captcha = trim($_SESSION['rand_code']);
+    
+    if ( isset($email) && isset($password) && isset($repeat_pass) && isset($user_captcha) )
+    {   
+        $checkForm = new CheckForm($email, $password, $repeat_pass, $user_captcha);
+    
+        $checkForm->checkEmail($connect, $email);
+        $checkForm->checkPass($password, $repeat_pass);
+        $checkForm->checkCaptcha($user_captcha, $true_captcha);
+        
+        if ( $checkForm->result['success'] === true )
+            $checkForm->saveUser($connect, $email, $password);
+        
+        echo json_encode($checkForm->result);
+    }
 
-    if ( isset($email) && isset($password) && isset($repeat_password) && isset($user_answer) ) {
+
+    /*
+    if ( isset($email) && isset($password) && isset($repeat_pass) && isset($user_captcha) ) {
         //check passwords
-        if ( $password === $repeat_password ) {
+        if ( $password === $repeat_pass ) {
             //check captcha
-            if ( $user_answer === $true_answer ) {
+            if ( $user_captcha === $true_captcha ) {
                 //Check the similarity of the email in the database
 
                 //save in to db
@@ -36,7 +46,7 @@
                 }
                 else {
                     //echo "<script>$('#form_message').attr('class', 'warning');</script>";
-                    echo "Could not successfully run query from DB: " . mysql_error(); 
+                    echo "Could not successfully run query from DB: " . mysqli_error(); 
                 }
             }
             else {
@@ -52,5 +62,6 @@
     else {
         echo "Not all fields are filled";
     }
+    */
     //echo "Done";
 ?>
